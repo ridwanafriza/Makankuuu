@@ -19,5 +19,6 @@ class MainActivity : AppCompatActivity() {
         }
         Log.d("TEST_KOLAB", "Halo dari Ridwan afriza!")
         Log.d("TEST_KOLAB", "Halo dari star!")
+        Log.d("TEST_KOLAB", "Halo dari tar!")
     }
 }
