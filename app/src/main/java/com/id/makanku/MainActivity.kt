@@ -18,5 +18,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         Log.d("TEST_KOLAB", "Halo dari Ridwan afriza!")
+        Log.d("TEST_KOLAB", "Halo dari star!")
     }
 }
