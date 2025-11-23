@@ -21,6 +21,6 @@ class MainActivity : AppCompatActivity() {
         Log.d("TEST_KOLAB", "Halo dari star!")
         Log.d("TEST_KOLAB", "Halo dari tar!")
         Log.d("TEST_KOLAB", "Halo dari ach!")
-        Log.d("TEST_KOLAB", "kiwkiw")
+        Log.d("TEST_KOLAB", "kiwkiww")
     }
 }
