@@ -23,3 +23,6 @@ class MainActivity : AppCompatActivity() {
         Log.d("TEST_KOLAB", "Halo dari ach!")
     }
 }
+
+
+//jsabubcuaiBJ
