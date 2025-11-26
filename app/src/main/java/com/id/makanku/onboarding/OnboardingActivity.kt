@@ -1,5 +1,6 @@
 package com.id.makanku.onboarding
 
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,39 +9,37 @@ import com.id.makanku.onboarding.OnboardingAdapter
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import android.widget.Button
 import android.widget.TextView
-import com.id.makanku.MainActivity
+import kotlin.jvm.java
 
 class OnboardingActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager2
-    private lateinit var nextBtn: Button
-    private lateinit var skipBtn: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
 
         viewPager = findViewById(R.id.viewPager)
-        nextBtn = findViewById(R.id.btnNext)
-        skipBtn = findViewById(R.id.btnSkip)
+        val nextBtn = findViewById<Button>(R.id.nextButton)
+        val skipBtn = findViewById<TextView>(R.id.skipButton)
+        val dots = findViewById<WormDotsIndicator>(R.id.dots_indicator)
 
         val adapter = OnboardingAdapter(this)
         viewPager.adapter = adapter
-
-        val dots = findViewById<WormDotsIndicator>(R.id.dotsIndicator)
-        dots.attachTo(viewPager)
+        dots.setViewPager2(viewPager) // untuk versi dotsindicator 4.3
 
         nextBtn.setOnClickListener {
-            if (viewPager.currentItem < 2) {
-                viewPager.currentItem += 1
+            if (viewPager.currentItem < adapter.itemCount - 1) {
+                viewPager.currentItem = viewPager.currentItem + 1
             } else {
-                startActivity(Intent(this, MainActivity::class.java))
+                // selesai onboarding -> ganti ke activity utama (LoginActivity / MainActivity)
+                startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
         }
 
         skipBtn.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }
