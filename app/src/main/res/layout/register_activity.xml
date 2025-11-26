@@ -14,10 +14,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223" />
+        app:layout_constraintVertical_bias="0.137" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress1"
@@ -140,8 +140,47 @@
         app:layout_constraintTop_toBottomOf="@+id/button"
         app:layout_constraintVertical_bias="0.08" />
 
+    <LinearLayout
+        android:id="@+id/segmentContainer"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/bg_segment_container"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
+        <TextView
+            android:id="@+id/btnMahasiswa"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/bg_segment_selected"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="mahasiswa"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/btnUmkm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="umkm"
+            android:textColor="#808080"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
