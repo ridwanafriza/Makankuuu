@@ -38,6 +38,20 @@ class LoginActivity : AppCompatActivity() {
         val editTextPassword: EditText = findViewById(R.id.editTextTextPassword)
         val buttonLogin: Button = findViewById(R.id.button)
 
+        val btnMahasiswa: TextView = findViewById(R.id.btnMahasiswa)
+        val btnUmkm: TextView = findViewById(R.id.btnUmkm)
+
+        btnMahasiswa.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("role", "mahasiswa")
+            startActivity(intent)
+        }
+        btnUmkm.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("role", "umkm")
+            startActivity(intent)
+        }
+
         // Aksi login
         buttonLogin.setOnClickListener {
             val email = editTextEmail.text.toString().trim()
