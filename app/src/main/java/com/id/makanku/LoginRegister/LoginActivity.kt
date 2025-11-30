@@ -1,14 +1,17 @@
-package com.id.makanku
+package com.id.makanku.LoginRegister
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.id.makanku.MainActivity
+import com.id.makanku.R
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,6 +25,12 @@ class LoginActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val txtRegister: TextView = findViewById(R.id.textView4)
+
+        txtRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
 
         // Inisialisasi komponen
