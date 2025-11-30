@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.id.makanku.R
-import com.id.makanku.LoginActivity
-import kotlin.jvm.java
+import com.id.makanku.LoginRegister.LoginActivity
+
 
 class OnboardingActivity : AppCompatActivity() {
 
