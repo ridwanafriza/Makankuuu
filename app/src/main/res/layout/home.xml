@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ================= HEADER GREEN ================= -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:background="#17A751">
+
+            <!-- Icon user + Hi user -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:padding="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/ic_user"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp" />
+
+                <TextView
+                    android:text="Hi, user!"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="10dp"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Main text -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginTop="70dp"
+                android:paddingHorizontal="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Mahasiswa"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="26sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="bisa makan"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="26sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="hemat"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="26sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Harga badge -->
+            <TextView
+                android:text="cuma Rp20.000"
+                android:padding="8dp"
+                android:background="@drawable/bg_price_badge"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_marginTop="170dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <!-- Search bar -->
+        <LinearLayout
+            android:layout_marginTop="-30dp"
+            android:paddingHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Mau makan apa nih"
+                android:drawablePadding="10dp"
+                android:paddingHorizontal="20dp"
+                android:background="@drawable/bg_search"/>
+        </LinearLayout>
+
+        <!-- Title -->
+        <TextView
+            android:text="Paling Populer >"
+            android:textStyle="bold"
+            android:padding="20dp"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Card makanan 1 -->
+        <include layout="@layout/row_menu_card" />
+
+        <!-- Card makanan 2 -->
+        <include layout="@layout/row_menu_card" />
+
+    </LinearLayout>
+</ScrollView>
