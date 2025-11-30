@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Makanku">
         <activity
+            android:name=".LoginRegister.RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginRegister.LoginActivity"
             android:exported="false" />
         <activity
