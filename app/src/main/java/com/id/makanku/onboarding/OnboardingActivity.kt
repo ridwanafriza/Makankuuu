@@ -1,46 +1,98 @@
 package com.id.makanku.onboarding
 
-
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2
-import com.id.makanku.onboarding.OnboardingAdapter
-import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.viewpager2.widget.ViewPager2
+import com.id.makanku.R
+import com.id.makanku.LoginActivity
 import kotlin.jvm.java
 
 class OnboardingActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager2
+    private lateinit var btnNext: Button
+    private lateinit var btnSkip: TextView
+    private lateinit var dotsLayout: LinearLayout
+
+    private val totalPages = 5  // splash + 4 onboarding pages
+    private var currentPage = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
 
-        viewPager = findViewById(R.id.viewPager)
-        val nextBtn = findViewById<Button>(R.id.nextButton)
-        val skipBtn = findViewById<TextView>(R.id.skipButton)
-        val dots = findViewById<WormDotsIndicator>(R.id.dots_indicator)
+        viewPager = findViewById(R.id.viewPagerOnboard)
+        btnNext = findViewById(R.id.btnNext)
+        btnSkip = findViewById(R.id.btnSkip)
+        dotsLayout = findViewById(R.id.dotsIndicator)
 
-        val adapter = OnboardingAdapter(this)
-        viewPager.adapter = adapter
-        dots.setViewPager2(viewPager) // untuk versi dotsindicator 4.3
+        viewPager.adapter = OnboardingAdapter(this)
 
-        nextBtn.setOnClickListener {
-            if (viewPager.currentItem < adapter.itemCount - 1) {
-                viewPager.currentItem = viewPager.currentItem + 1
+        setupIndicators()
+        setCurrentIndicator(0)
+
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                currentPage = position
+                setCurrentIndicator(position)
+
+                if (position == totalPages - 1) {
+                    btnNext.text = "Mulai"
+                    btnSkip.text = ""
+                } else {
+                    btnNext.text = "Next"
+                    btnSkip.text = "Skip"
+                }
+            }
+        })
+
+        btnNext.setOnClickListener {
+            if (currentPage < totalPages - 1) {
+                viewPager.currentItem = currentPage + 1
             } else {
-                // selesai onboarding -> ganti ke activity utama (LoginActivity / MainActivity)
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             }
         }
 
-        skipBtn.setOnClickListener {
+        btnSkip.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
+        }
+    }
+
+    private fun setupIndicators() {
+        val indicators = Array(totalPages) { TextView(this) }
+
+        val params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { setMargins(8, 0, 8, 0) }
+
+        indicators.forEach {
+            it.text = "●"
+            it.textSize = 14f
+            it.layoutParams = params
+            it.setTextColor(ContextCompat.getColor(this, R.color.gray))
+            dotsLayout.addView(it)
+        }
+    }
+
+    private fun setCurrentIndicator(index: Int) {
+        val childCount = dotsLayout.childCount
+        for (i in 0 until childCount) {
+            val textView = dotsLayout.getChildAt(i) as TextView
+            textView.setTextColor(
+                if (i == index)
+                    ContextCompat.getColor(this, R.color.green)
+                else
+                    ContextCompat.getColor(this, R.color.gray)
+            )
         }
     }
 }
