@@ -1,96 +1,55 @@
 package com.id.makanku
 
+import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
-import android.view.MotionEvent
+import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class LoginActivity : AppCompatActivity() {
 
-    private var isPasswordVisible = false  // default: password tertutup
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        val password = findViewById<EditText>(R.id.editTextTextPassword)
-        val btnMahasiswa = findViewById<TextView>(R.id.btnMahasiswa)
-        val btnUmkm = findViewById<TextView>(R.id.btnUmkm)
+        // Untuk padding otomatis agar tidak ketiban status bar / navigation bar
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
-        // ============================
-        // 1. SET ICON MATA DEFAULT
-        // ============================
-        password.setCompoundDrawablesWithIntrinsicBounds(
-            null, null,
-            AppCompatResources.getDrawable(this, R.drawable.baseline_visibility_24),
-            null
-        )
+        // Inisialisasi komponen
+        val editTextEmail: EditText = findViewById(R.id.editTextTextEmailAddress)
+        val editTextPassword: EditText = findViewById(R.id.editTextTextPassword)
+        val buttonLogin: Button = findViewById(R.id.button)
 
-        // =================================
-        // 2. TOGGLE SHOW/HIDE PASSWORD
-        // =================================
-        password.setOnTouchListener { _, event ->
-            val drawableEnd = 2  // posisi drawable kanan
+        // Aksi login
+        buttonLogin.setOnClickListener {
+            val email = editTextEmail.text.toString().trim()
+            val password = editTextPassword.text.toString().trim()
 
-            if (event.action == MotionEvent.ACTION_UP) {
-                if (event.rawX >= (password.right - password.compoundDrawables[drawableEnd].bounds.width())) {
-
-                    isPasswordVisible = !isPasswordVisible
-
-                    if (isPasswordVisible) {
-                        // Tampilkan password
-                        password.inputType =
-                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-
-                        // Ganti ke icon mata tertutup
-                        password.setCompoundDrawablesWithIntrinsicBounds(
-                            null, null,
-                            AppCompatResources.getDrawable(this, R.drawable.baseline_visibility_off_24),
-                            null
-                        )
-
-                    } else {
-                        // Sembunyikan password
-                        password.inputType =
-                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-
-                        // Ganti icon jadi mata terbuka
-                        password.setCompoundDrawablesWithIntrinsicBounds(
-                            null, null,
-                            AppCompatResources.getDrawable(this, R.drawable.baseline_visibility_24),
-                            null
-                        )
-                    }
-
-                    // Biar cursor tetap di akhir
-                    password.setSelection(password.text.length)
-
-                    return@setOnTouchListener true
-                }
+            // Validasi sederhana
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Email dan Password harus diisi", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
-            false
+
+            // Pindah halaman
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra(KEY_USERNAME, email)
+            startActivity(intent)
+
+            Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
         }
+    }
 
-        // =================================
-        // 3. SEGMENT BUTTON MAHASISWA / UMKM
-        // =================================
-        btnMahasiswa.setOnClickListener {
-            btnMahasiswa.setBackgroundResource(R.drawable.bg_segment_selected)
-            btnMahasiswa.setTextColor(resources.getColor(android.R.color.black))
-
-            btnUmkm.setBackgroundResource(android.R.color.transparent)
-            btnUmkm.setTextColor(resources.getColor(android.R.color.darker_gray))
-        }
-
-        btnUmkm.setOnClickListener {
-            btnUmkm.setBackgroundResource(R.drawable.bg_segment_selected)
-            btnUmkm.setTextColor(resources.getColor(android.R.color.black))
-
-            btnMahasiswa.setBackgroundResource(android.R.color.transparent)
-            btnMahasiswa.setTextColor(resources.getColor(android.R.color.darker_gray))
-        }
+    companion object {
+        const val KEY_USERNAME = "username"
     }
 }
