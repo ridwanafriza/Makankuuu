@@ -17,11 +17,6 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        Log.d("TEST_KOLAB", "Halo dari Ridwan afriza!")
-        Log.d("TEST_KOLAB", "Halo dari star!")
-        Log.d("TEST_KOLAB", "Halo dari tar!")
-        Log.d("TEST_KOLAB", "Halo dari ach!")
-        Log.d("TEST_KOLAB", "kiwkiww")
     }
 }
 
