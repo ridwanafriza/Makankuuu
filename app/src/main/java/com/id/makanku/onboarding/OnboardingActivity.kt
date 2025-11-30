@@ -9,7 +9,8 @@ import com.id.makanku.onboarding.OnboardingAdapter
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import android.widget.Button
 import android.widget.TextView
-import kotlin.jvm.java
+import com.id.makanku.R
+import com.id.makanku.LoginRegister.LoginActivity
 
 class OnboardingActivity : AppCompatActivity() {
 
