@@ -66,6 +66,7 @@ class OnboardingActivity : AppCompatActivity() {
         }
     }
 
+//    dots indicator
     private fun setupIndicators() {
         val indicators = Array(totalPages) { TextView(this) }
 

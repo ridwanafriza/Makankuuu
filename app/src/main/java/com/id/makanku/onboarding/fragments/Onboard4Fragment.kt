@@ -14,5 +14,6 @@ class Onboard4Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_onboard4, container, false)
+        
     }
 }
