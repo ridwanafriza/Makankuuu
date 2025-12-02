@@ -2,8 +2,10 @@ package com.id.makanku.LoginRegister
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -37,6 +39,27 @@ class LoginActivity : AppCompatActivity() {
         val editTextEmail: EditText = findViewById(R.id.editTextTextEmailAddress)
         val editTextPassword: EditText = findViewById(R.id.editTextTextPassword)
         val buttonLogin: Button = findViewById(R.id.button)
+
+        val btnEye: ImageView = findViewById(R.id.imageView3)
+        var isPasswordVisible = false
+
+        btnEye.setOnClickListener {
+            isPasswordVisible = !isPasswordVisible
+
+            if (isPasswordVisible) {
+                // Tampilkan password
+                editTextPassword.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                btnEye.setImageResource(R.drawable.baseline_visibility_24)
+            } else {
+                // Sembunyikan password
+                editTextPassword.inputType =
+                    InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                btnEye.setImageResource(R.drawable.baseline_visibility_off_24)
+            }
+
+            editTextPassword.setSelection(editTextPassword.text.length)
+        }
+
 
         // Tombol role Mahasiswa & UMKM
         val btnMahasiswa: TextView = findViewById(R.id.btnMahasiswa)
