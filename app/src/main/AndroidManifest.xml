@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Makanku">
         <activity
+            android:name=".DetailRestorant"
+            android:exported="false" />
+        <activity
             android:name=".SearchRestorant"
             android:exported="false" />
         <activity
