@@ -46,16 +46,23 @@
         android:layout_marginTop="312dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edittext_border"
-        android:drawableEnd="@drawable/baseline_visibility_24"
-        android:drawablePadding="12dp"
         android:hint="Masukan Password"
         android:inputType="textPassword"
         android:padding="16dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/eyePassword"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:src="@drawable/baseline_visibility_off_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPassword"
+        android:layout_marginEnd="45dp" />
 
     <EditText
         android:id="@+id/konfirmasipassword"
@@ -64,18 +71,25 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/edittext_border"
-        android:drawableEnd="@drawable/baseline_visibility_24"
-        android:drawablePadding="12dp"
-        android:hint="Konfirmasi Passsword"
+        android:hint="Konfirmasi Password"
         android:inputType="textPassword"
         android:padding="16dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        app:layout_constraintVertical_bias="0.087" />
+        android:layout_marginTop="12dp" />
+
+    <ImageView
+        android:id="@+id/eyeConfirmPassword"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:src="@drawable/baseline_visibility_off_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/konfirmasipassword"
+        app:layout_constraintBottom_toBottomOf="@+id/konfirmasipassword"
+        android:layout_marginEnd="45dp" />
+
 
 
     <EditText
