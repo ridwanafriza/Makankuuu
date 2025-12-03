@@ -1,0 +1,35 @@
+package com.id.makanku
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+
+class MenuAdapter(private val listMenu: List<MenuModel>) :
+    RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
+
+    inner class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imgMenu: ImageView = itemView.findViewById(R.id.imgMenu)
+        val txtNama: TextView = itemView.findViewById(R.id.txtNamaMenu)
+        val txtDesc: TextView = itemView.findViewById(R.id.txtDeskripsi)
+        val txtHarga: TextView = itemView.findViewById(R.id.txtHarga)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_menu, parent, false)
+        return MenuViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
+        val item = listMenu[position]
+        holder.imgMenu.setImageResource(item.imageRes)
+        holder.txtNama.text = item.nama
+        holder.txtDesc.text = item.deskripsi
+        holder.txtHarga.text = item.harga
+    }
+
+    override fun getItemCount(): Int = listMenu.size
+}
