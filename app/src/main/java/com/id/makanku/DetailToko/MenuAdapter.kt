@@ -1,6 +1,7 @@
 package com.id.makanku.DetailToko
 
 import android.view.LayoutInflater
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -25,13 +26,26 @@ class MenuAdapter(private val listMenu: List<MenuModel>) :
         return MenuViewHolder(view)
     }
 
+    override fun getItemCount(): Int = listMenu.size
+
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         val item = listMenu[position]
         holder.imgMenu.setImageResource(item.imageRes)
         holder.txtNama.text = item.nama
         holder.txtDesc.text = item.deskripsi
         holder.txtHarga.text = item.harga
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, FoodDetailActivity::class.java)
+
+            intent.putExtra("nama", item.nama)
+            intent.putExtra("deskripsi", item.deskripsi)
+            intent.putExtra("harga", item.harga)
+            intent.putExtra("gambar", item.imageRes)
+
+            context.startActivity(intent)
+        }
     }
 
-    override fun getItemCount(): Int = listMenu.size
 }
