@@ -7,6 +7,9 @@ android {
     namespace = "com.id.makanku"
     compileSdk = 36
 
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         applicationId = "com.id.makanku"
         minSdk = 24
