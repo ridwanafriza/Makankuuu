@@ -1,6 +1,8 @@
 package com.id.makanku.DetailToko
 
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,10 +14,25 @@ class FoodDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_food_detail)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val nama = intent.getStringExtra("nama")
+        val deskripsi = intent.getStringExtra("deskripsi")
+        val harga = intent.getStringExtra("harga")
+        val gambar = intent.getIntExtra("gambar", 0)
+
+        val imgFood = findViewById<ImageView>(R.id.imgFood)
+        val txtNama = findViewById<TextView>(R.id.txtNamaMakanan)
+        val txtDesk = findViewById<TextView>(R.id.txtDeskripsi)
+        val txtHarga = findViewById<TextView>(R.id.txtHarga)
+
+        txtNama.text = nama
+        txtDesk.text = deskripsi
+        txtHarga.text = harga
+        if (gambar != 0) imgFood.setImageResource(gambar)
     }
 }
