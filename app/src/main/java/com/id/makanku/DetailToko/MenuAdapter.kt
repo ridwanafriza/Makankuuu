@@ -1,4 +1,4 @@
-package com.id.makanku
+package com.id.makanku.DetailToko
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.id.makanku.DetailToko.MenuModel
+import com.id.makanku.R
 
 class MenuAdapter(private val listMenu: List<MenuModel>) :
     RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {

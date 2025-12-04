@@ -1,4 +1,4 @@
-package com.id.makanku
+package com.id.makanku.DetailToko
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,6 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.id.makanku.DetailToko.MenuAdapter
+import com.id.makanku.DetailToko.MenuModel
+import com.id.makanku.R
 
 class DetailRestorant : AppCompatActivity() {
 

@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Makanku">
         <activity
-            android:name=".DetailRestorant"
+            android:name=".DetailToko.FoodDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailToko.DetailRestorant"
             android:exported="false" />
         <activity
             android:name=".SearchRestorant"

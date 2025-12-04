@@ -1,4 +1,4 @@
-package com.id.makanku
+package com.id.makanku.DetailToko
 
 data class MenuModel(
     val nama: String,
