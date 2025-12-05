@@ -30,7 +30,9 @@
                 android:text="Detail pesanan"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:paddingStart="12dp" />
+                android:paddingStart="12dp"
+                android:background="@drawable/bg_card_white"
+                android:translationZ="6dp"/>
 
         </LinearLayout>
 
@@ -53,17 +55,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!-- ============================= -->
-        <!-- Card Total -->
-        <!-- ============================= -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:background="@drawable/bg_card_white"
+            android:clipToOutline="false"
+            android:clipToPadding="false"
+            android:elevation="8dp"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginTop="16dp">
+            android:outlineProvider="background"
+            android:padding="12dp"
+            android:translationZ="8dp">
 
             <!-- item 1 -->
             <LinearLayout
@@ -131,9 +135,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingTop="6dp"
-                android:gravity="center_vertical">
+                android:paddingTop="6dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -145,9 +149,9 @@
                     android:id="@+id/txtVoucher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SAMBALKUY15"
-                    android:padding="4dp"
                     android:background="@drawable/bg_voucher"
+                    android:padding="4dp"
+                    android:text="SAMBALKUY15"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -160,12 +164,12 @@
                 android:paddingTop="10dp">
 
                 <TextView
+                    android:id="@+id/txtGrandTotal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="RP 34.000"
-                    android:textStyle="bold"
-                    android:id="@+id/txtGrandTotal" />
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- tombol pilih lokasi -->
@@ -174,8 +178,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="16dp"
-                android:text="pilih lokasi"
                 android:background="@drawable/btn_green_rounded"
+                android:text="pilih lokasi"
                 android:textColor="#FFFFFF" />
 
             <!-- tombol payment -->
@@ -184,8 +188,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="12dp"
-                android:text="payment"
                 android:background="@drawable/btn_green_rounded"
+                android:text="payment"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>
