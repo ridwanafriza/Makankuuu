@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_white"
@@ -8,15 +9,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <!-- Banner -->
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/bg_home_banner"
-            android:orientation="vertical"
+            android:layout_height="230dp"
+            android:background="@drawable/foto"
             android:padding="20dp">
 
             <TextView
@@ -25,47 +24,28 @@
                 android:layout_height="wrap_content"
                 android:text="hi, user!"
                 android:textColor="@android:color/white"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:text="Mahasiswa bisa makan hemat"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_marginTop="12dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="cuma Rp20.000"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="6dp"
-                android:textSize="14sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bekerja sama dengan kampus dan UMKM"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="16dp"
-                android:textSize="12sp"/>
-        </LinearLayout>
-
-        <!-- Search Bar -->
+        <!-- Search bar -->
         <LinearLayout
-            android:layout_marginTop="-28dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="-25dp"
             android:background="@drawable/bg_search"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="12dp">
+            android:elevation="6dp"
+            android:padding="12dp"
+            android:gravity="center_vertical">
 
             <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/icon_search"/>
 
             <EditText
@@ -73,14 +53,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:hint="Mau makan apanh"
+                android:hint="Mau makan apanih"
                 android:textSize="14sp"
-                android:paddingStart="10dp" />
+                android:paddingStart="10dp"/>
         </LinearLayout>
 
         <!-- Section Title -->
         <TextView
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Paling Populer"
@@ -90,10 +71,9 @@
         <!-- RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPopular"
-            android:layout_marginTop="12dp"
+            android:layout_margin="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </ScrollView>
