@@ -22,21 +22,13 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Gradient hitam transparan di atas gambar -->
-        <View
-            android:id="@+id/gradientTop"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:background="@drawable/gradient_top"
-            app:layout_constraintTop_toTopOf="@id/imgFood"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Badge diskon -->
         <TextView
             android:id="@+id/tvDiscount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_discount_red"
+            android:background="@drawable/bg_discount"
             android:text="50%"
             android:textColor="@android:color/white"
             android:textStyle="bold"
@@ -54,12 +46,15 @@
             android:id="@+id/imgFav"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/icon_star"
-            android:padding="6dp"
-            android:background="@drawable/bg_circle_white"
             android:layout_margin="10dp"
-            app:layout_constraintTop_toTopOf="@id/imgFood"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/bg_rating"
+            android:padding="6dp"
+            android:src="@drawable/icon_star"
+            android:tint="@color/star"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imgFood" />
 
         <!-- Konten bawah -->
         <LinearLayout
@@ -100,7 +95,7 @@
                     android:id="@+id/iconLocation"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:src="@drawable/ic_location"
+                    android:src="@drawable/icon_location"
                     app:tint="#6E6E6E"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -125,7 +120,7 @@
                     android:id="@+id/btnOrder"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_arrow_right"
+                    android:src="@drawable/icon_arrow"
                     android:background="@drawable/circle_image"
                     android:backgroundTint="@color/green"
                     android:padding="8dp"

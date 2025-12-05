@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/imgOnboard"
-        android:layout_width="350dp"
-        android:layout_height="369dp"
+        android:layout_width="319dp"
+        android:layout_height="338dp"
         android:layout_marginTop="60dp"
-        android:src="@drawable/onboard1"
+        android:src="@drawable/onboard01"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="aplikasi makanan khusus mahasiswa lebih hemat dan praktis"
+        android:text="Aplikasi makanan khusus mahasiswa lebih hemat dan praktis"
+        android:textColor="@color/textColor"
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"

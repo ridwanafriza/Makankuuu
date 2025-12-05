@@ -10,7 +10,8 @@ class OnboardingAdapter(activity: FragmentActivity) : FragmentStateAdapter(activ
     private val fragments = listOf(
         Onboard1Fragment(),
         Onboard2Fragment(),
-        Onboard3Fragment()
+        Onboard3Fragment(),
+        Onboard4Fragment()
 
     )
 

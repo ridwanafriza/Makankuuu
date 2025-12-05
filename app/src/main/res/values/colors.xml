@@ -3,4 +3,6 @@
     <color name="green">#66BB6A</color>
     <color name="gray">#BDBDBD</color>
     <color name="bg_white">#F8F9FA</color>
+    <color name="star">#FFC727</color>
+    <color name="textColor">#212121</color>
 </resources>

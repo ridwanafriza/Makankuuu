@@ -55,7 +55,7 @@
             android:paddingBottom="8dp"
             android:text="Next"
             android:textColor="@android:color/white"
-            android:background="@drawable/btn_next_bg"
+            android:backgroundTint="@color/green"
             app:layout_constraintTop_toBottomOf="@id/dotsIndicator"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="16dp"
