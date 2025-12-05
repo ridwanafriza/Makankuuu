@@ -33,7 +33,7 @@ class MenuAdapter(private val listMenu: List<MenuModel>) :
         holder.imgMenu.setImageResource(item.imageRes)
         holder.txtNama.text = item.nama
         holder.txtDesc.text = item.deskripsi
-        holder.txtHarga.text = item.harga
+        holder.txtHarga.text = item.hargaAsli
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context

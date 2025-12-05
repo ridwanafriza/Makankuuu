@@ -1,22 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="120dp"
-    android:layout_height="90dp"
-    android:layout_marginEnd="10dp"
-    android:orientation="vertical">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:padding="12dp">
 
-    <ImageView
-        android:id="@+id/imgFood"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:scaleType="centerCrop"
-        android:background="@drawable/rounded_8"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtFoodName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="5dp"
-        android:text="Ayam Geprek"/>
-</LinearLayout>
+        <ImageView
+            android:id="@+id/imgMenu"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/rounded_image"/>
+
+        <TextView
+            android:id="@+id/txtNamaMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Menu"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_toEndOf="@id/imgMenu"
+            android:layout_marginStart="12dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/tvDeskripsiMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi menu..."
+            android:textSize="13sp"
+            android:layout_toEndOf="@id/imgMenu"
+            android:layout_marginStart="12dp"
+            android:layout_below="@id/tvNamaMenu"
+            android:textColor="#757575"/>
+
+        <TextView
+            android:id="@+id/tvHargaAwal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp20.000"
+            android:textSize="13sp"
+            android:layout_toEndOf="@id/imgMenu"
+            android:layout_below="@id/tvDeskripsiMenu"
+            android:layout_marginStart="12dp"
+            android:textColor="#888"
+            android:paintFlags="strikeThruText"/>
+
+        <TextView
+            android:id="@+id/tvHargaDiskon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp15.000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_below="@id/tvHargaAwal"
+            android:layout_toEndOf="@id/imgMenu"
+            android:layout_marginStart="12dp"
+            android:textColor="#000"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

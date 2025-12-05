@@ -1,5 +1,7 @@
 package com.id.makanku.DetailToko
 
+import android.R
+
 data class MenuModel(
     val nama: String,
     val deskripsi: String,
@@ -7,3 +9,4 @@ data class MenuModel(
     val imageRes: Int,
     val diskon: String? = null
 )
+
