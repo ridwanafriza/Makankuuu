@@ -102,20 +102,7 @@ class SearchRestorant : AppCompatActivity() {
                 diskon = "10%"
             )
         )
+        rvRestaurant.adapter = RestaurantAdapter(restaurantList)
 
-        rvRestaurant.adapter = RestaurantAdapter(restaurantList, object : OnRestaurantClickListener {
-            override fun onItemClick(item: RestaurantModel) {
-
-                // buka halaman DetailRestorant + kirim data
-                val intent = Intent(this@SearchRestorant, DetailRestorant::class.java)
-                intent.putExtra("nama", item.nama)
-                intent.putExtra("rating", item.rating)
-                intent.putExtra("info", item.info)
-                intent.putExtra("diskon", item.diskon)
-                intent.putExtra("imageRes", item.imageRes)
-
-                startActivity(intent)
-            }
-        })
     }
 }
