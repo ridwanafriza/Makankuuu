@@ -1,76 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card_view:cardCornerRadius="16dp"
-    card_view:cardElevation="4dp"
-    android:layout_margin="8dp">
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:layout_height="wrap_content">
 
-        <!-- Badge Diskon -->
+        <!-- Food image -->
+        <ImageView
+            android:id="@+id/imgFood"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Discount badge on top-left -->
         <TextView
-            android:id="@+id/tvDiscountBadge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_discount_red"
+            android:id="@+id/tvBadge"
+            android:layout_width="48dp"
+            android:layout_height="28dp"
+            android:gravity="center"
             android:text="50 %"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:padding="6dp"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:padding="4dp"
+            android:background="@drawable/bg_discount"
+            app:layout_constraintTop_toTopOf="@id/imgFood"
+            app:layout_constraintStart_toStartOf="@id/imgFood"
+            android:layout_margin="8dp"/>
 
-        <!-- Gambar -->
-        <ImageView
-            android:id="@+id/imgFood"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_below="@id/tvDiscountBadge"
-            android:scaleType="centerCrop"
-            android:src="@drawable/sample_food"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_image_radius"/>
-
-        <!-- Nama -->
-        <TextView
-            android:id="@+id/tvFoodName"
-            android:layout_width="wrap_content"
+        <!-- content area -->
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Ayam Geprek"
-            android:layout_below="@id/imgFood"
-            android:layout_marginTop="8dp"
-            android:textStyle="bold"
-            android:textSize="14sp"/>
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/imgFood"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Harga -->
-        <TextView
-            android:id="@+id/tvFoodPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="16.000"
-            android:layout_below="@id/tvFoodName"
-            android:layout_marginTop="4dp"
-            android:textSize="13sp"
-            android:textColor="#333"/>
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ayam Geprek Sambal Ijo"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end"/>
 
-        <!-- Tombol Mau -->
-        <TextView
-            android:id="@+id/btnMau"
-            android:layout_width="60dp"
-            android:layout_height="32dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/btn_green_rounded"
-            android:gravity="center"
-            android:text="mau"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:layout_below="@id/tvFoodName"/>
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ayam geprek dengan nasi pulen dan sambal..."
+                android:textSize="12sp"
+                android:textColor="#666666"
+                android:layout_marginTop="4dp"
+                android:maxLines="2"
+                android:ellipsize="end"/>
 
-    </RelativeLayout>
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="16.000"
+                    android:textStyle="bold"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:id="@+id/btnMau"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_arrow_right"
+                    android:padding="8dp"
+                    android:background="@drawable/btn_green_rounded"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

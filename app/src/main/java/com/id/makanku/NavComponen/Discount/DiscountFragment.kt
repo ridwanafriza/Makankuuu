@@ -24,7 +24,7 @@ class DiscountFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val items = listOf(
-            DiscountItem("Ayam Geprek Sambal Ijo", "16.000", R.drawable.sample_food, 50),
+            DiscountItem("Ayam Geprek Sambal Ijo", "16.000", R.drawable., 50),
             DiscountItem("Ayam Geprek Sambal Ijo", "16.000", R.drawable.sample_food, 50),
             DiscountItem("Ayam Geprek Sambal Ijo", "16.000", R.drawable.sample_food, 50),
             DiscountItem("Ayam Geprek Sambal Ijo", "16.000", R.drawable.sample_food, 50)
