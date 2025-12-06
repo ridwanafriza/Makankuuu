@@ -1,14 +1,14 @@
 package com.id.makanku.DetailToko
 
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.id.makanku.DetailToko.MenuAdapter
-import com.id.makanku.DetailToko.MenuModel
 import com.id.makanku.R
 
 class DetailRestorant : AppCompatActivity() {
@@ -25,7 +25,29 @@ class DetailRestorant : AppCompatActivity() {
             insets
         }
 
-        // data menu
+        // ambil view dari XML
+        val imgProfile = findViewById<ImageView>(R.id.imgProfile)
+        val txtName = findViewById<TextView>(R.id.textView6)
+        val txtRating = findViewById<TextView>(R.id.textRating)
+        val txtInfo = findViewById<TextView>(R.id.textView7)
+        val rvMenu = findViewById<RecyclerView>(R.id.rvMenu)
+
+        // ambil data dari intent
+        val restaurantName = intent.getStringExtra("nama") ?: "-"
+        val restaurantRating = intent.getStringExtra("rating") ?: "-"
+        val restaurantInfo = intent.getStringExtra("info") ?: "-"
+        val restaurantImage = intent.getIntExtra("imageRes", 0)
+
+        // set data ke view
+        txtName.text = restaurantName
+        txtRating.text = restaurantRating
+        txtInfo.text = restaurantInfo
+
+        if (restaurantImage != 0) {
+            imgProfile.setImageResource(restaurantImage)
+        }
+
+        // data menu (contoh statis)
         val listMenu = listOf(
             MenuModel(
                 "Ayam Geprek Sambal Ijo",
@@ -47,10 +69,7 @@ class DetailRestorant : AppCompatActivity() {
             )
         )
 
-        // ambil RecyclerView
-        val rvMenu = findViewById<RecyclerView>(R.id.rvMenu)
-
-        // horizontal scroll sesuai CardView 170dp
+        // setup RecyclerView menu
         rvMenu.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvMenu.adapter = MenuAdapter(listMenu)
     }
