@@ -19,7 +19,7 @@
             android:background="@drawable/rounded_image"/>
 
         <TextView
-            android:id="@+id/txtNamaMenu"
+            android:id="@+id/tvNamaMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nama Menu"
@@ -49,8 +49,7 @@
             android:layout_toEndOf="@id/imgMenu"
             android:layout_below="@id/tvDeskripsiMenu"
             android:layout_marginStart="12dp"
-            android:textColor="#888"
-            android:paintFlags="strikeThruText"/>
+            android:textColor="#888" />
 
         <TextView
             android:id="@+id/tvHargaDiskon"
