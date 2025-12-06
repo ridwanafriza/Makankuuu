@@ -32,6 +32,7 @@
 
         <!-- Search bar -->
         <LinearLayout
+            android:id="@+id/layoutSearch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
@@ -46,7 +47,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/icon_search"/>
+                android:src="@drawable/icon_search" />
 
             <EditText
                 android:id="@+id/etSearch"
@@ -55,10 +56,12 @@
                 android:background="@android:color/transparent"
                 android:hint="Mau makan apanih"
                 android:textSize="14sp"
-                android:paddingStart="10dp"/>
+                android:paddingStart="10dp"
+                android:focusable="false"
+                android:cursorVisible="false"/>
         </LinearLayout>
 
-        <!-- Section Title -->
+        <!-- Title -->
         <TextView
             android:layout_marginTop="30dp"
             android:layout_marginStart="16dp"
@@ -73,7 +76,8 @@
             android:id="@+id/rvPopular"
             android:layout_margin="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
 </ScrollView>
