@@ -11,7 +11,7 @@
 
     <fragment
         android:id="@+id/discountFragment"
-        android:name="com.id.makanku.NavComponen.DiscountFragment"
+        android:name="com.id.makanku.NavComponen.Discount.DiscountFragment"
         android:label="Discount" />
 
     <fragment

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="16dp"
+    card_view:cardElevation="4dp"
+    android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Badge Diskon -->
+        <TextView
+            android:id="@+id/tvDiscountBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_discount_red"
+            android:text="50 %"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:padding="6dp"
+            android:textSize="12sp"/>
+
+        <!-- Gambar -->
+        <ImageView
+            android:id="@+id/imgFood"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@id/tvDiscountBadge"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_food"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_image_radius"/>
+
+        <!-- Nama -->
+        <TextView
+            android:id="@+id/tvFoodName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ayam Geprek"
+            android:layout_below="@id/imgFood"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
+
+        <!-- Harga -->
+        <TextView
+            android:id="@+id/tvFoodPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16.000"
+            android:layout_below="@id/tvFoodName"
+            android:layout_marginTop="4dp"
+            android:textSize="13sp"
+            android:textColor="#333"/>
+
+        <!-- Tombol Mau -->
+        <TextView
+            android:id="@+id/btnMau"
+            android:layout_width="60dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_green_rounded"
+            android:gravity="center"
+            android:text="mau"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_below="@id/tvFoodName"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
