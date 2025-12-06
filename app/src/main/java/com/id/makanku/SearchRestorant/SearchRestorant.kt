@@ -46,6 +46,7 @@ class SearchRestorant : AppCompatActivity() {
                 imageRes = R.drawable.geprek_sambalmatah,
                 diskon = "50%"
             )
+
         )
 
         rvRestaurant.adapter = RestaurantAdapter(restaurantList)
