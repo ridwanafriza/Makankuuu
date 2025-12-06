@@ -39,8 +39,8 @@ class HomeFragment : Fragment() {
         // =================================
 
         val listUmkm = listOf(
-            UmkmModel(1, "warung sambal kuy", "jl. serayu timur v", "1.5 km", "5–10 min", 50, R.drawable.ayam_bakar),
-            UmkmModel(2, "ayam geprek maknyus", "jl. anggrek 4", "2.1 km", "10–15 min", 30, R.drawable.ayam_bakar)
+            UmkmModel(1, "warung sambal kuy", "jl. serayu timur v", "1.5 km", "5–10 min", 50, R.drawable.ayambakar),
+            UmkmModel(2, "ayam geprek maknyus", "jl. anggrek 4", "2.1 km", "10–15 min", 30, R.drawable.ayambakar)
         )
 
         binding.rvPopular.layoutManager = LinearLayoutManager(requireContext())
