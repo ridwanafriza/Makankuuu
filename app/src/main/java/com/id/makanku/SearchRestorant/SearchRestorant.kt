@@ -8,6 +8,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.id.makanku.R
+import android.content.Intent
+import com.id.makanku.DetailToko.DetailRestorant
 
 class SearchRestorant : AppCompatActivity() {
     private lateinit var rvRestaurant: RecyclerView
@@ -101,6 +103,15 @@ class SearchRestorant : AppCompatActivity() {
             )
         )
 
-        rvRestaurant.adapter = RestaurantAdapter(restaurantList)
+        rvRestaurant.adapter = RestaurantAdapter(restaurantList, object : OnRestaurantClickListener {
+            override fun onItemClick(item: RestaurantModel) {
+
+                // buka halaman DetailRestorant + kirim data
+                val intent = Intent(this@SearchRestorant, DetailRestorant::class.java)
+                intent.putExtra("nama", item.nama)
+                intent.putExtra("gambar", item.imageRes)
+                startActivity(intent)
+            }
+        })
     }
 }

@@ -7,6 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.id.makanku.DetailToko.MenuAdapter
+import com.id.makanku.DetailToko.MenuModel
 import com.id.makanku.R
 
 class DetailRestorant : AppCompatActivity() {
@@ -35,7 +37,7 @@ class DetailRestorant : AppCompatActivity() {
                 "Ayam Bakar Madu",
                 "Ayam bakar dengan olesan madu dan rempah...",
                 "18.000",
-                R.drawable.ayambakar
+                R.drawable.ayam_bakar
             ),
             MenuModel(
                 "Ayam Geprek Sambal Matah",

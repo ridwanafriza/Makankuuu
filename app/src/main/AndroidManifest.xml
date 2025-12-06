@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Makanku">
         <activity
+            android:name=".DetailPesanan.CartAdapter"
+            android:exported="false" />
+        <activity
             android:name=".SearchRestorant.RestaurantAdapter"
             android:exported="false" />
         <activity
