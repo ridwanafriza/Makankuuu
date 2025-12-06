@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.widget.TextView
 import com.id.makanku.DetailToko.MenuAdapter
 import com.id.makanku.DetailToko.MenuModel
 import com.id.makanku.R
@@ -18,14 +19,32 @@ class DetailRestorant : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_detail_restorant)
 
-        // inset UI sesuai system bars
+        // inset sesuai system bars
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // data menu
+        // Ambil data dari Intent
+        val restaurantName = intent.getStringExtra("nama")
+        val restaurantRating = intent.getStringExtra("rating")
+        val restaurantInfo = intent.getStringExtra("info")
+        val restaurantDiscount = intent.getStringExtra("diskon")
+
+        // Cocokkan dengan ID di XML
+        val txtNama = findViewById<TextView>(R.id.textView6)
+        val txtDeskripsi = findViewById<TextView>(R.id.textView7)
+        val txtRating = findViewById<TextView>(R.id.textRating)
+        val txtInfo = findViewById<TextView>(R.id.textInfo)
+
+        // Set data ke tampilan
+        txtNama.text = restaurantName ?: "Nama restoran"
+        txtDeskripsi.text = restaurantInfo ?: "Deskripsi restoran"
+        txtRating.text = restaurantRating ?: "0.0"
+        txtInfo.text = restaurantInfo ?: "Info restoran"
+
+        // Data menu contoh
         val listMenu = listOf(
             MenuModel(
                 "Ayam Geprek Sambal Ijo",
@@ -41,16 +60,14 @@ class DetailRestorant : AppCompatActivity() {
             ),
             MenuModel(
                 "Ayam Geprek Sambal Matah",
-                "Ayam geprek dengan nasi pulen dan sambal...",
+                "Ayam geprek dengan nasi pulen dan sambal matah...",
                 "14.000",
                 R.drawable.geprek_sambalmatah
             )
         )
 
-        // ambil RecyclerView
+        // RecyclerView menu
         val rvMenu = findViewById<RecyclerView>(R.id.rvMenu)
-
-        // horizontal scroll sesuai CardView 170dp
         rvMenu.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvMenu.adapter = MenuAdapter(listMenu)
     }

@@ -8,7 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.id.makanku.R
 
-class RestaurantAdapter(private val list: List<RestaurantModel>) :
+interface OnRestaurantClickListener {
+    fun onItemClick(item: RestaurantModel)
+}
+
+class RestaurantAdapter(private val list: List<RestaurantModel>, private val listener: OnRestaurantClickListener ) :
     RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -37,6 +41,9 @@ class RestaurantAdapter(private val list: List<RestaurantModel>) :
             holder.discount.visibility = View.VISIBLE
         } else {
             holder.discount.visibility = View.GONE
+        }
+        holder.itemView.setOnClickListener {
+            listener.onItemClick(item)
         }
     }
     override fun getItemCount(): Int = list.size
