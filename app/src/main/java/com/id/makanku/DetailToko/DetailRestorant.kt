@@ -29,9 +29,9 @@ class DetailRestorant : AppCompatActivity() {
         // ================================
         val restaurantName = intent.getStringExtra("nama")
         val restaurantRating = intent.getStringExtra("rating")
-        val restaurantInfo = intent.getStringExtra("info")          // ⭐ jarak + harga
+        val restaurantInfo = intent.getStringExtra("info")
         val restaurantDiskon = intent.getStringExtra("diskon")
-        val restaurantImage = intent.getIntExtra("imageRes", 0)     // ⭐ DITAMBAHKAN
+        val restaurantImage = intent.getIntExtra("imageRes", 0)
 
         // ================================
         // FIND VIEW SESUAI XML
