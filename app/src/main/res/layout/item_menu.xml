@@ -16,7 +16,7 @@
             android:layout_height="80dp"
             android:scaleType="centerCrop"
             android:layout_alignParentStart="true"
-            android:background="@drawable/rounded_image"/>
+            android:background="@drawable/rounded_image" />
 
         <TextView
             android:id="@+id/tvNamaMenu"
@@ -27,7 +27,7 @@
             android:textSize="16sp"
             android:layout_toEndOf="@id/imgMenu"
             android:layout_marginStart="12dp"
-            android:textColor="#000"/>
+            android:textColor="#000" />
 
         <TextView
             android:id="@+id/tvDeskripsiMenu"
@@ -38,8 +38,9 @@
             android:layout_toEndOf="@id/imgMenu"
             android:layout_marginStart="12dp"
             android:layout_below="@id/tvNamaMenu"
-            android:textColor="#757575"/>
+            android:textColor="#757575" />
 
+        <!-- Harga awal (tanpa paintFlags di XML) -->
         <TextView
             android:id="@+id/tvHargaAwal"
             android:layout_width="wrap_content"
@@ -61,7 +62,7 @@
             android:layout_below="@id/tvHargaAwal"
             android:layout_toEndOf="@id/imgMenu"
             android:layout_marginStart="12dp"
-            android:textColor="#000"/>
+            android:textColor="#000" />
 
     </RelativeLayout>
 
