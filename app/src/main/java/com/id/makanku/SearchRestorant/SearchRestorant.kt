@@ -56,8 +56,12 @@ class SearchRestorant : AppCompatActivity() {
 
                 // buka halaman DetailRestorant + kirim data
                 val intent = Intent(this@SearchRestorant, DetailRestorant::class.java)
-                intent.putExtra("nama", item.nama)
-                intent.putExtra("gambar", item.imageRes)
+                intent.putExtra("nama", item.nama)       // ⭐
+                intent.putExtra("rating", item.rating)   // ⭐
+                intent.putExtra("info", item.info)       // ⭐
+                intent.putExtra("diskon", item.diskon)   // ⭐
+                intent.putExtra("imageRes", item.imageRes) // ⭐
+
                 startActivity(intent)
             }
         })

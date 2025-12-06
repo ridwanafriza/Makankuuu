@@ -1,15 +1,14 @@
 package com.id.makanku.DetailToko
 
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.widget.TextView
-import com.id.makanku.DetailToko.MenuAdapter
-import com.id.makanku.DetailToko.MenuModel
 import com.id.makanku.R
 
 class DetailRestorant : AppCompatActivity() {
@@ -19,32 +18,48 @@ class DetailRestorant : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_detail_restorant)
 
-        // inset sesuai system bars
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Ambil data dari Intent
+        // ================================
+        // AMBIL DATA DARI INTENT
+        // ================================
         val restaurantName = intent.getStringExtra("nama")
         val restaurantRating = intent.getStringExtra("rating")
-        val restaurantInfo = intent.getStringExtra("info")
-        val restaurantDiscount = intent.getStringExtra("diskon")
+        val restaurantInfo = intent.getStringExtra("info")          // ⭐ jarak + harga
+        val restaurantDiskon = intent.getStringExtra("diskon")
+        val restaurantImage = intent.getIntExtra("imageRes", 0)     // ⭐ DITAMBAHKAN
 
-        // Cocokkan dengan ID di XML
+        // ================================
+        // FIND VIEW SESUAI XML
+        // ================================
         val txtNama = findViewById<TextView>(R.id.textView6)
         val txtDeskripsi = findViewById<TextView>(R.id.textView7)
         val txtRating = findViewById<TextView>(R.id.textRating)
         val txtInfo = findViewById<TextView>(R.id.textInfo)
+        val imgProfile = findViewById<ImageView>(R.id.imgProfile)   // ⭐ DITAMBAHKAN
 
-        // Set data ke tampilan
+        // ================================
+        // SET DATA KE UI
+        // ================================
         txtNama.text = restaurantName ?: "Nama restoran"
-        txtDeskripsi.text = restaurantInfo ?: "Deskripsi restoran"
+
+        // 🔧 Perbaikan BESAR:
+        // textView7 = deskripsi → seharusnya kamu punya DESKRIPSI sendiri
+        // tapi karena datanya belum ada, sementara ditampilkan dummy
+        txtDeskripsi.text = "Aneka ayam geprek, goreng, bakar, dll."  // ⭐ FIX
+
         txtRating.text = restaurantRating ?: "0.0"
         txtInfo.text = restaurantInfo ?: "Info restoran"
+        if (restaurantImage != 0) imgProfile.setImageResource(restaurantImage)  // ⭐ DITAMBAHKAN
 
-        // Data menu contoh
+
+        // ================================
+        // DATA MENU
+        // ================================
         val listMenu = listOf(
             MenuModel(
                 "Ayam Geprek Sambal Ijo",
@@ -66,7 +81,6 @@ class DetailRestorant : AppCompatActivity() {
             )
         )
 
-        // RecyclerView menu
         val rvMenu = findViewById<RecyclerView>(R.id.rvMenu)
         rvMenu.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvMenu.adapter = MenuAdapter(listMenu)
