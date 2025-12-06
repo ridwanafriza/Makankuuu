@@ -77,7 +77,7 @@ class SearchRestorant : AppCompatActivity() {
                 nama = "Ayam Bakar Marem",
                 rating = "4.7 (120+ ratings)",
                 info = "900m • 18rb - 25rb",
-                imageRes = R.drawable.ayambakar,
+                imageRes = R.drawable.ayam_bakar,
                 diskon = "25%"
             ),
             RestaurantModel(
