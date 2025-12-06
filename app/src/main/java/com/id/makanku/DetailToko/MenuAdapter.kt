@@ -15,7 +15,7 @@ class MenuAdapter(private val listMenu: List<MenuModel>) :
 
     inner class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgMenu: ImageView = itemView.findViewById(R.id.imgMenu)
-        val txtNama: TextView = itemView.findViewById(R.id.txtNamaMenu)
+        val txtNama: TextView = itemView.findViewById(R.id.tvNamaMenu)
         val txtDesc: TextView = itemView.findViewById(R.id.txtDeskripsi)
         val txtHarga: TextView = itemView.findViewById(R.id.txtHarga)
     }

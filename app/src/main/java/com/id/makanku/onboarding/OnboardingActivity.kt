@@ -19,7 +19,7 @@ class OnboardingActivity : AppCompatActivity() {
     private lateinit var btnSkip: TextView
     private lateinit var dotsLayout: LinearLayout
 
-    private val totalPages = 5  // splash + 4 onboarding pages
+    private val totalPages = 4  // splash + 4 onboarding pages
     private var currentPage = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {

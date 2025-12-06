@@ -8,11 +8,11 @@ import com.id.makanku.onboarding.fragments.*
 class OnboardingAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
 
     private val fragments = listOf(
-        OnboardSplashFragment(),
         Onboard1Fragment(),
         Onboard2Fragment(),
         Onboard3Fragment(),
         Onboard4Fragment()
+
     )
 
     override fun getItemCount(): Int = fragments.size
