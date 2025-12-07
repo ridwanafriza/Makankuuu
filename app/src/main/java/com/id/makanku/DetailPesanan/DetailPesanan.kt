@@ -20,6 +20,7 @@ class DetailPesanan : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_detail_pesanan)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -29,14 +30,21 @@ class DetailPesanan : AppCompatActivity() {
         rvCart = findViewById(R.id.rvCart)
         rvCart.layoutManager = LinearLayoutManager(this)
 
-        listCart.add(CartItem("Ayam Geprek", 10000, 1, R.drawable.geprek_ijo))
-        listCart.add(CartItem("Ayam Sambal Ijo", 15000, 2, R.drawable.geprek_ijo))
+        // Ambil data dari FoodDetailActivity
+        val nama = intent.getStringExtra("nama")
+        val harga = intent.getStringExtra("harga")?.toIntOrNull() ?: 0
+        val gambar = intent.getIntExtra("gambar", 0)
+
+        // Masukkan ke keranjang kalau datanya valid
+        if (nama != null && harga > 0 && gambar != 0) {
+            listCart.add(CartItem(nama, harga, 1, gambar))
+        }
 
         cartAdapter = CartAdapter(listCart) {
             hitungTotal()
         }
-        rvCart.adapter = cartAdapter
 
+        rvCart.adapter = cartAdapter
         hitungTotal()
     }
 
