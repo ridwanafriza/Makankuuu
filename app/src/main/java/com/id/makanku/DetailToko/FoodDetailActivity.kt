@@ -27,7 +27,7 @@ class FoodDetailActivity : AppCompatActivity() {
         // Ambil data dari intent
         val nama = intent.getStringExtra("nama")
         val deskripsi = intent.getStringExtra("deskripsi")
-        val harga = intent.getStringExtra("harga")
+        val harga = intent.getIntExtra("harga", 0)
         val gambar = intent.getIntExtra("gambar", 0)
 
         // Sambungkan ke view
@@ -40,7 +40,7 @@ class FoodDetailActivity : AppCompatActivity() {
         // Tampilkan data
         txtNama.text = nama
         txtDesk.text = deskripsi
-        txtHarga.text = harga
+        txtHarga.text = "Rp $harga"
         if (gambar != 0) {
             imgFood.setImageResource(gambar)
         }

@@ -28,13 +28,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Detail pesanan"
+                android:text="@string/detail_pesanan"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:paddingStart="12dp"
                 android:background="@drawable/bg_card_white"
-                android:translationZ="6dp"/>
-
+                android:translationZ="6dp" />
         </LinearLayout>
 
         <!-- Nama toko -->
@@ -48,27 +47,21 @@
             android:paddingTop="20dp"
             android:paddingBottom="10dp" />
 
-        <!-- ============================= -->
         <!-- RecyclerView untuk item pesanan -->
-        <!-- ============================= -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-
+        <!-- CARD Total -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:background="@drawable/bg_card_white"
-            android:clipToOutline="false"
-            android:clipToPadding="false"
             android:elevation="8dp"
             android:orientation="vertical"
-            android:outlineProvider="background"
-            android:padding="12dp"
-            android:translationZ="8dp">
+            android:padding="12dp">
 
             <!-- item 1 -->
             <LinearLayout
@@ -121,7 +114,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="total"
+                    android:text="@string/total"
                     android:textStyle="bold" />
 
                 <TextView
@@ -144,14 +137,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="kode voucher" />
+                    android:text="@string/kode_voucher" />
 
                 <TextView
                     android:id="@+id/txtVoucher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_voucher"
-                    android:padding="4dp"
+                    android:padding="6dp"
                     android:text="SAMBALKUY15"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp" />
@@ -177,20 +170,20 @@
             <Button
                 android:id="@+id/btnLokasi"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/btn_green_rounded"
-                android:text="pilih lokasi"
+                android:text="@string/pilih_lokasi"
                 android:textColor="#FFFFFF" />
 
             <!-- tombol payment -->
             <Button
                 android:id="@+id/btnPayment"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/btn_green_rounded"
-                android:text="payment"
+                android:text="@string/payment"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>
