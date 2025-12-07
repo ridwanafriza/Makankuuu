@@ -32,9 +32,11 @@ class MenuAdapter(private val listMenu: List<MenuModel>) :
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         val item = listMenu[position]
         holder.imgMenu.setImageResource(item.imageRes)
+
         holder.txtNama.text = item.nama
         holder.txtDesc.text = item.deskripsi
-        holder.txtHarga.text = item.harga
+
+        holder.txtHarga.text = "Rp ${item.harga}"
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context

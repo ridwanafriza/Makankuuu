@@ -5,8 +5,7 @@ import android.R
 data class MenuModel(
     val nama: String,
     val deskripsi: String,
-    val harga: String,
+    val harga: Int,
     val imageRes: Int,
-    val diskon: String? = null
 )
 

@@ -9,6 +9,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.card.MaterialCardView
 import com.id.makanku.R
 
 class DetailRestorant : AppCompatActivity() {
@@ -25,20 +27,33 @@ class DetailRestorant : AppCompatActivity() {
             insets
         }
 
-        // ambil view dari XML
+        // ==== AMBIL VIEW XML ====
         val imgProfile = findViewById<ImageView>(R.id.imgProfile)
         val txtName = findViewById<TextView>(R.id.textView6)
         val txtRating = findViewById<TextView>(R.id.textRating)
         val txtInfo = findViewById<TextView>(R.id.textView7)
         val rvMenu = findViewById<RecyclerView>(R.id.rvMenu)
 
-        // ambil data dari intent
+        // >>>>> INI YANG KAMU MAU <<<<<
+        val cardDelivery = findViewById<MaterialCardView>(R.id.cardDetail)
+
+        // ==== BOTTOMSHEET ====
+        val bottomSheetView = layoutInflater.inflate(R.layout.delevery_pickup, null)
+        val bottomSheetDialog = BottomSheetDialog(this)
+        bottomSheetDialog.setContentView(bottomSheetView)
+
+        // ==== JIKA KLIK CARD DELIVERY, BUKA BOTTOMSHEET ====
+        cardDelivery.setOnClickListener {
+            bottomSheetDialog.show()
+        }
+
+        // ==== DATA INTENT ====
         val restaurantName = intent.getStringExtra("nama") ?: "-"
         val restaurantRating = intent.getStringExtra("rating") ?: "-"
         val restaurantInfo = intent.getStringExtra("info") ?: "-"
         val restaurantImage = intent.getIntExtra("imageRes", 0)
 
-        // set data ke view
+        // ==== SET TEXT ====
         txtName.text = restaurantName
         txtRating.text = restaurantRating
         txtInfo.text = restaurantInfo
@@ -47,29 +62,13 @@ class DetailRestorant : AppCompatActivity() {
             imgProfile.setImageResource(restaurantImage)
         }
 
-        // data menu (contoh statis)
+        // ==== SET MENU ====
         val listMenu = listOf(
-            MenuModel(
-                "Ayam Geprek Sambal Ijo",
-                "Ayam geprek dengan nasi pulen dan sambal ijo...",
-                "16.000",
-                R.drawable.geprek_ijo
-            ),
-            MenuModel(
-                "Ayam Bakar Madu",
-                "Ayam bakar dengan olesan madu dan rempah...",
-                "18.000",
-                R.drawable.ayam_bakar
-            ),
-            MenuModel(
-                "Ayam Geprek Sambal Matah",
-                "Ayam geprek dengan nasi pulen dan sambal...",
-                "14.000",
-                R.drawable.geprek_sambalmatah
-            )
+            MenuModel("Ayam Geprek Sambal Ijo", "Ayam geprek dengan nasi pulen...", "16.000", R.drawable.geprek_ijo),
+            MenuModel("Ayam Bakar Madu", "Ayam bakar dengan madu...", "18.000", R.drawable.ayam_bakar),
+            MenuModel("Ayam Geprek Sambal Matah", "Ayam geprek sambal matah...", "14.000", R.drawable.geprek_sambalmatah)
         )
 
-        // setup RecyclerView menu
         rvMenu.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvMenu.adapter = MenuAdapter(listMenu)
     }
