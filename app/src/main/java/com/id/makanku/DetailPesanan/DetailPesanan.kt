@@ -32,11 +32,11 @@ class DetailPesanan : AppCompatActivity() {
 
         // Ambil data dari FoodDetailActivity
         val nama = intent.getStringExtra("nama")
-        val harga = intent.getStringExtra("harga")?.toIntOrNull() ?: 0
+        val harga = intent.getIntExtra("harga", 0)
         val gambar = intent.getIntExtra("gambar", 0)
 
         // Masukkan ke keranjang kalau datanya valid
-        if (nama != null && harga > 0 && gambar != 0) {
+        if (nama != null && harga > 0) {
             listCart.add(CartItem(nama, harga, 1, gambar))
         }
 
@@ -55,9 +55,7 @@ class DetailPesanan : AppCompatActivity() {
         }
 
         val txtTotal = findViewById<TextView>(R.id.txtTotal)
-        val txtGrandTotal = findViewById<TextView>(R.id.txtGrandTotal)
 
         txtTotal.text = "Rp $total"
-        txtGrandTotal.text = "Rp $total"
     }
 }

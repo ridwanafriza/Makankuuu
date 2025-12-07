@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:padding="10dp"
+    android:background="#FFFFFF"
+    android:layout_marginBottom="10dp"
+    android:elevation="2dp">
+
+    <!-- Foto Profil -->
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_person"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/circle_white"
+        android:padding="5dp" />
+
+    <!-- Nama Driver -->
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imgProfile"
+        android:layout_marginStart="15dp"
+        android:text="driver"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000000" />
+
+    <!-- Pesan terakhir -->
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_toEndOf="@id/imgProfile"
+        android:layout_marginStart="15dp"
+        android:text="dimana mba?"
+        android:textColor="#777777"
+        android:textSize="13sp" />
+
+    <!-- Badge notif -->
+    <TextView
+        android:id="@+id/tvBadge"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/badge_red"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -14,9 +14,9 @@ class CartAdapter(
 ) : RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imgMenu = itemView.findViewById<ImageView>(R.id.imgMenuCart)
+        val imgMenu = itemView.findViewById<ImageView>(R.id.imgCart)
         val txtNama = itemView.findViewById<TextView>(R.id.txtNamaMenuCart)
-        val txtHarga = itemView.findViewById<TextView>(R.id.txtHargaCart)
+        val txtHarga = itemView.findViewById<TextView>(R.id.txtHargaMenuCart)
         val txtQty = itemView.findViewById<TextView>(R.id.txtQty)
         val btnPlus = itemView.findViewById<TextView>(R.id.btnPlus)
         val btnMinus = itemView.findViewById<TextView>(R.id.btnMinus)

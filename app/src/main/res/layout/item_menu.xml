@@ -45,7 +45,7 @@
             android:id="@+id/tvHargaAwal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rp20.000"
+            android:text=""
             android:textSize="13sp"
             android:layout_toEndOf="@id/imgMenu"
             android:layout_below="@id/tvDeskripsiMenu"
