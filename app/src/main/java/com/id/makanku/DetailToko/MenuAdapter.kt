@@ -14,16 +14,17 @@ class MenuAdapter(private val listMenu: List<MenuModel>) :
     RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
 
     inner class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imgMenu: ImageView = itemView.findViewById(R.id.imgMenu)
-        val txtNama: TextView = itemView.findViewById(R.id.tvNamaMenu)
-        val txtDesc: TextView = itemView.findViewById(R.id.tvDeskripsiMenu)
-        val txtHarga: TextView = itemView.findViewById(R.id.tvHargaDiskon)
-
+        val imgMenu: ImageView = itemView.findViewById(R.id.imgFood)
+        val txtNama: TextView = itemView.findViewById(R.id.tvName)
+        val txtDesc: TextView = itemView.findViewById(R.id.tvDesc)
+        val txtHarga: TextView = itemView.findViewById(R.id.tvPrice)
+        val tvBadge: TextView = itemView.findViewById(R.id.tvBadge)
+        val btnMau: ImageView = itemView.findViewById(R.id.btnMau)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_menu, parent, false)
+            .inflate(R.layout.item_discount, parent, false)
         return MenuViewHolder(view)
     }
 
@@ -37,6 +38,14 @@ class MenuAdapter(private val listMenu: List<MenuModel>) :
         holder.txtDesc.text = item.deskripsi
 
         holder.txtHarga.text = "Rp ${item.harga}"
+
+        if (!item.discount.isNullOrEmpty()) {
+            holder.tvBadge.visibility = View.VISIBLE
+            holder.tvBadge.text = item.discount
+        } else {
+            holder.tvBadge.visibility = View.GONE
+        }
+
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context

@@ -7,5 +7,6 @@ data class MenuModel(
     val deskripsi: String,
     val harga: Int,
     val imageRes: Int,
+    val discount: String? = null
 )
 

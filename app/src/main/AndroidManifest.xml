@@ -19,6 +19,7 @@
             android:exported="false" />
         <activity
             android:name=".DetailToko.FoodDetailActivity"
+            android:theme="@style/Theme.Makanku.Transparent"
             android:exported="false" />
         <activity
             android:name=".DetailToko.DetailRestorant"

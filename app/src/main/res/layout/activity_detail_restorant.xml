@@ -23,17 +23,18 @@
 
     <ImageView
         android:id="@+id/imgProfile"
-        android:layout_width="178dp"
-        android:layout_height="152dp"
-        android:background="@drawable/circle_image"
-        android:clipToOutline="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
         android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:background="@drawable/circle_image"
         android:src="@drawable/foto_resto"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.25"/>
 
     <LinearLayout
         android:id="@+id/layoutSearchBar"
@@ -111,16 +112,16 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="301dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="Dapur Mbok Rini, Jl. Ciliwung No 12"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgProfile"
+        android:layout_marginTop="16dp"/>
 
     <TextView
         android:id="@+id/textView7"
@@ -226,10 +227,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMenu"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:nestedScrollingEnabled="false"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
