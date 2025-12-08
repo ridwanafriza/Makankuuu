@@ -10,6 +10,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.id.makanku.R
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.card.MaterialCardView
 
 class DetailRestorant : AppCompatActivity() {
 
@@ -31,6 +33,18 @@ class DetailRestorant : AppCompatActivity() {
         val txtRating = findViewById<TextView>(R.id.textRating)
         val txtInfo = findViewById<TextView>(R.id.textView7)
         val rvMenu = findViewById<RecyclerView>(R.id.rvMenu)
+
+        val cardDelivery = findViewById<MaterialCardView>(R.id.cardDetail)
+
+        // ==== BOTTOMSHEET ====
+        val bottomSheetView = layoutInflater.inflate(R.layout.delevery_pickup, null)
+        val bottomSheetDialog = BottomSheetDialog(this)
+        bottomSheetDialog.setContentView(bottomSheetView)
+
+        // ==== JIKA KLIK CARD DELIVERY, BUKA BOTTOMSHEET ====
+        cardDelivery.setOnClickListener {
+            bottomSheetDialog.show()
+        }
 
         // ambil data dari intent
         val restaurantName = intent.getStringExtra("nama") ?: "-"

@@ -59,7 +59,7 @@ class ChatDetailFragment : Fragment() {
 
                 // Optional: auto balasan dummy (bubble kiri)
                 rvChat.postDelayed({
-                    val reply = ChatDetailModel("Pesan diterima!", false)
+                    val reply = ChatDetailModel("", false)
                     chatList.add(reply)
                     adapter.notifyItemInserted(chatList.size - 1)
                     rvChat.scrollToPosition(chatList.size - 1)

@@ -1,10 +1,9 @@
-package com.id.makanku.NavComponen.Discount
+package com.id.makanku.model
 
 data class DiscountItem(
-    val id: Int,
     val name: String,
-    val desc: String,
     val price: String,
+    val imageRes: Int,
     val discountPercent: Int,
-    val imageRes: Int
+    val desc: String
 )

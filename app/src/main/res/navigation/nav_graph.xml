@@ -9,10 +9,10 @@
         android:name="com.id.makanku.NavComponen.Home.HomeFragment"
         android:label="Home" />
 
-<!--    <fragment-->
-<!--        android:id="@+id/discountFragment"-->
-<!--        android:name="com.id.makanku.NavComponen.Discount.DiscountFragment"-->
-<!--        android:label="Discount" />-->
+    <fragment
+        android:id="@+id/discountFragment"
+        android:name="com.id.makanku.NavComponen.Discount.DiscountFragment"
+        android:label="Discount" />
 
     <fragment
         android:id="@+id/historyFragment"

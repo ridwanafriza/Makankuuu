@@ -10,8 +10,7 @@ import com.id.makanku.R
 import com.id.makanku.model.DiscountItem
 
 class DiscountAdapter(
-    private val items: List<DiscountItem>,
-    private val listener: (DiscountItem) -> Unit
+    private val items: List<DiscountItem>
 ) : RecyclerView.Adapter<DiscountAdapter.VH>() {
 
     inner class VH(view: View) : RecyclerView.ViewHolder(view) {
@@ -24,20 +23,23 @@ class DiscountAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_discount, parent, false)
-        return VH(v)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_discount, parent, false)
+        return VH(view)
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        val it = items[position]
-        holder.imgFood.setImageResource(it.imageRes)
-        holder.tvBadge.text = "${it.discountPercent} %"
-        holder.tvName.text = it.name
-        holder.tvDesc.text = it.desc
-        holder.tvPrice.text = it.price
+        val item = items[position]
 
-        holder.itemView.setOnClickListener { listener(it) }
-        holder.btnMau.setOnClickListener { listener(it) }
+        holder.imgFood.setImageResource(item.imageRes)
+        holder.tvBadge.text = "${item.discountPercent}%"
+        holder.tvName.text = item.name
+        holder.tvDesc.text = item.desc
+        holder.tvPrice.text = item.price
+
+        // Klik dinonaktifkan dulu biar tidak error
+        holder.itemView.setOnClickListener {}
+        holder.btnMau.setOnClickListener {}
     }
 
     override fun getItemCount(): Int = items.size
