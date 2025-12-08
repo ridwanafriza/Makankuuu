@@ -1,7 +1,8 @@
 package com.id.makanku.DetailPesanan
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -46,6 +47,41 @@ class DetailPesanan : AppCompatActivity() {
 
         rvCart.adapter = cartAdapter
         hitungTotal()
+
+        val rbGroup = findViewById<RadioGroup>(R.id.rbPaymentGroup)
+        val rbCash = findViewById<RadioButton>(R.id.rbCash)
+        val rbQRIS = findViewById<RadioButton>(R.id.rbQRIS)
+        val btnPayment = findViewById<Button>(R.id.btnPayment)
+
+        btnPayment.setOnClickListener {
+            val selectedPaymentId = rbGroup.checkedRadioButtonId
+
+            if (selectedPaymentId == -1) {
+                Toast.makeText(this, "Pilih metode pembayaran terlebih dahulu", Toast.LENGTH_SHORT).show()
+            } else {
+                val paymentMethod = when (selectedPaymentId) {
+                    R.id.rbCash -> "Cash"
+                    R.id.rbQRIS -> "QRIS"
+                    else -> ""
+                }
+
+                val totalHarga = listCart.sumOf { it.harga * it.jumlah }
+
+                when (paymentMethod) {
+                    "Cash" -> {
+                        // Contoh: tampilkan konfirmasi bayar cash
+                        Toast.makeText(this, "Bayar secara Cash\nTotal: Rp $totalHarga", Toast.LENGTH_LONG).show()
+                        // TODO: Lanjutkan logika cash (misal update database, selesai transaksi)
+                    }
+                    "QRIS" -> {
+                        // Contoh: pindah ke halaman QRIS
+                        val intent = Intent(this, QrisPaymentActivity::class.java)
+                        intent.putExtra("TOTAL_HARGA", totalHarga)
+                        startActivity(intent)
+                    }
+                }
+            }
+        }
     }
 
     private fun hitungTotal() {

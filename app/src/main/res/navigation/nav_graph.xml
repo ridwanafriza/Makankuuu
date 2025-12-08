@@ -9,19 +9,35 @@
         android:name="com.id.makanku.NavComponen.Home.HomeFragment"
         android:label="Home" />
 
-    <fragment
-        android:id="@+id/discountFragment"
-        android:name="com.id.makanku.NavComponen.Discount.DiscountFragment"
-        android:label="Discount" />
+<!--    <fragment-->
+<!--        android:id="@+id/discountFragment"-->
+<!--        android:name="com.id.makanku.NavComponen.Discount.DiscountFragment"-->
+<!--        android:label="Discount" />-->
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.id.makanku.NavComponen.HistoryFragment"
+        android:name="com.id.makanku.NavComponen.Home.HistoryFragment"
         android:label="History" />
 
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.id.makanku.NavComponen.ChatFragment"
-        android:label="Chat" />
+        android:label="Chat" >
+
+        <action
+            android:id="@+id/action_chatFragment_to_chatDetailFragment"
+            app:destination="@id/chatDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatDetailFragment"
+        android:name="com.id.makanku.NavComponen.ChatDetailFragment"
+        android:label="Chat Detail" >
+
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
+
 
 </navigation>

@@ -95,6 +95,44 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="25dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Metode Pembayaran"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingBottom="10dp" />
+
+            <RadioGroup
+                android:id="@+id/rbPaymentGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rbCash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cash"
+                    android:textSize="14sp"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/rbQRIS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="QRIS"
+                    android:textSize="14sp"
+                    android:padding="8dp" />
+
+            </RadioGroup>
+        </LinearLayout>
+
         <!--  BUTTON PAYMENT  -->
         <Button
             android:id="@+id/btnPayment"
